@@ -22,9 +22,6 @@ router.post('/api/users/create', function(req,res){
       return reject();
     }
     modelController.userCreate(
-      req.body.name, 
-      req.body.username, 
-      req.body.password, 
       req.body.createdOn,
       req.body.profileImage,
     function(success){

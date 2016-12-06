@@ -12,7 +12,6 @@ export default class CreateAccountPage extends React.Component {
 			username: creds.username,
 			password: creds.password,
 			confirmPassword: creds.confirmPassword,
-			profileImage: creds.profileImage,
 			createdOn: moment().format('MMM Do YYYY @ h:mm a')
 		}
 		fetch('/api/users/create', {
