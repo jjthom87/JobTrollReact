@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '../../actions/index';
 
-export default class CreateAccount extends React.Component {
-	constructor(...args){
-		super(...args)
-		this.state = {
-		}
-	}
-	onCreateUser(e){
+export var CreateAccount = React.createClass({
+	onCreateUser: function(e){
 		e.preventDefault();
 
 		var creds = {};
@@ -14,6 +11,7 @@ export default class CreateAccount extends React.Component {
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
 		var confirmPassword = this.refs.confirmPassword.value;
+		var {dispatch} = this.props;
 
 		if (name.length > 0) {
 			this.refs.name.value = '';
@@ -44,13 +42,13 @@ export default class CreateAccount extends React.Component {
 			alert("Passwords don't match");
 		}
 
-		this.props.onCreate(creds);
-	}
-	render() {
+		dispatch(actions.createUser(creds))
+	},
+	render: function() {
 		return (
 			<div>
 				<div id="accountForm">
-					<form onSubmit={this.onCreateUser.bind(this)}>
+					<form onSubmit={(this.onCreateUser.bind(this))}>
 						<div>
 							<h1 id="loginText">Create Account</h1>
 						</div>
@@ -76,4 +74,6 @@ export default class CreateAccount extends React.Component {
 			</div>
 		);
 	}
-}
+});
+
+export default connect()(CreateAccount);
