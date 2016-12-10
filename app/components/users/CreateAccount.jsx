@@ -42,7 +42,7 @@ export var CreateAccount = React.createClass({
 			alert("Passwords don't match");
 		}
 
-		dispatch(actions.createUser(creds))
+		dispatch(actions.createAccount(creds))
 	},
 	render: function() {
 		return (

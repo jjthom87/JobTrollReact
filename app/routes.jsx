@@ -12,7 +12,7 @@ import LoginPage from 'LoginPage';
 import UserHomePage from 'UserHomePage';
 
 import actions from './actions/index';
-import store from './store/configureStore';
+var store = require('./store/configureStore').configure();
 
 // COMPONENT ROUTES============================================================
 export default (
