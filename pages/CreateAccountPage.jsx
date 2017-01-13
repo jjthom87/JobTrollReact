@@ -6,29 +6,6 @@ var moment = require('moment');
 import LandingNavBar from '../app/components/navs/LandingNavBar';
 
 export default class CreateAccountPage extends React.Component {
-	// handleNewData (creds) {
-	// 	const newUser = {
-	// 		name: creds.name,
-	// 		username: creds.username,
-	// 		password: creds.password,
-	// 		confirmPassword: creds.confirmPassword,
-	// 		createdOn: moment().format('MMM Do YYYY @ h:mm a')
-	// 	}
-	// 	fetch('/api/users/create', {
-	// 		method: 'post',
-	// 		body: JSON.stringify(newUser),
-	// 		headers: {
-	// 			'content-type': 'application/json'
-	// 		}
-	// 	}).then((response) => response.json())
-	// 	.then((results) => {
-	// 		if (results.createdAt){
-	// 			browserHistory.push('/login');
-	// 		} else {
-	// 			results.errors.filter((result) => alert('Username Already Taken'));
-	// 		}
-	// 	})
-	// }
 	render() {
 		return (
 			<div>

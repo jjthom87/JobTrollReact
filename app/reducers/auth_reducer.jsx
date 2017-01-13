@@ -7,7 +7,7 @@ import redux from 'redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 
-var createAccountReducer = (state = {}, action) => {
+export var createAccountReducer = (state = {}, action) => {
 	switch(action.type){
 		case CREATE_USER:
 			return [
@@ -22,11 +22,4 @@ var createAccountReducer = (state = {}, action) => {
 		default:
 			return state;
 	}
-}
-export var configure = (initialState = {}) => {
-
-	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-	const store = createStoreWithMiddleware(createAccountReducer);
-
-	return store;
 }

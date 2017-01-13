@@ -4,8 +4,7 @@ import { Router, browserHistory } from 'react-router';
 import {Provider} from 'react-redux';
 
 import routes from './routes';
-import actions from './actions/index';
-var store = require('./reducers/auth_reducer').configure();
+var store = require('./store/configureStore').configure();
 
 ReactDOM.render(
 	<Provider store={store}>
