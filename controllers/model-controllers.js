@@ -2,13 +2,11 @@ var models = require('../models');
 models.sequelize.sync();
 
 var modelController = {
-	userCreate: function(name, username, password, createdOn, profileImage, cb){
+	userCreate: function(name, username, password, cb){
 	  	models.User.create({
 	  	  name: name,
 	      username: username,
 	      password: password,
-	      createdOn: createdOn,
-	      profileImage: profileImage
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){

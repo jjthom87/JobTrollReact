@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import actions from '../../actions/index';
+import * as actions from '../../actions/index';
 
 export var CreateAccount = React.createClass({
 	onCreateUser: function(e){
 		e.preventDefault();
 
-		var creds = {};
 		var name = this.refs.name.value;
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
@@ -15,40 +14,35 @@ export var CreateAccount = React.createClass({
 
 		if (name.length > 0) {
 			this.refs.name.value = '';
-			creds.name = name;
 		} else {
 			alert('Please Enter Name/Nickname')
 		}
 
 		if (username.length > 0) {
 			this.refs.username.value = '';
-			creds.username = username;
 		} else {
 			alert('Please Enter Username');
 		}
 
 		if (password.length > 0) {
 			this.refs.password.value = '';
-			creds.password = password;
 		} else {
 			alert('Password Must be at least 8 characters');
 		}
 
 		if (confirmPassword === password){
 			this.refs.confirmPassword.value = '';
-			creds.confirmPassword = confirmPassword 
 		} else {
 			this.refs.confirmPassword.value = '';
 			alert("Passwords don't match");
 		}
-
-		dispatch(actions.createAccount(creds))
+		dispatch(actions.createNewAccount(name, username, password, confirmPassword));
 	},
 	render: function() {
 		return (
 			<div>
 				<div id="accountForm">
-					<form onSubmit={(this.onCreateUser.bind(this))}>
+					<form onSubmit={this.onCreateUser}>
 						<div>
 							<h1 id="loginText">Create Account</h1>
 						</div>

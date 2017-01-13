@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
-import LandingNavBar from 'LandingNavBar';
+import LandingNavBar from '../app/components/navs/LandingNavBar';
 
 export default class HomePage extends React.Component {
   	constructor(props, context) {

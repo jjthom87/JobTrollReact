@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 
-import Logout from 'Logout';
-import MainNavBar from 'MainNavBar';
+import Logout from '../app/components/users/Logout';
+import MainNavBar from '../app/components/navs/MainNavBar';
 
 export default class UserHomePage extends React.Component {
   	constructor(props, context) {

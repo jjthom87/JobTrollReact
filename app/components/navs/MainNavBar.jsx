@@ -1,5 +1,5 @@
 var React = require('react');
-import Logout from 'Logout';
+import Logout from '../users/Logout';
 var {Link, IndexLink} = require('react-router');
 import { Router , browserHistory } from 'react-router';
 

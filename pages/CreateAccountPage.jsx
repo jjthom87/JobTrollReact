@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CreateAccount from 'CreateAccount';
+import CreateAccount from '../app/components/users/CreateAccount';
 import { Router , browserHistory } from 'react-router';
 var moment = require('moment');
 
-import LandingNavBar from 'LandingNavBar';
+import LandingNavBar from '../app/components/navs/LandingNavBar';
 
 export default class CreateAccountPage extends React.Component {
 	// handleNewData (creds) {
