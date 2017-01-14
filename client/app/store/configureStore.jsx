@@ -12,7 +12,7 @@ export var configure = (initialState = {}) => {
 	});
 
 	const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-	const store = createStoreWithMiddleware(reducers);
+	const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 	return store;
 }
