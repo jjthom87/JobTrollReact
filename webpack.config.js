@@ -5,7 +5,7 @@ module.exports = {
 	entry: [
 		'script!jquery/dist/jquery.min.js',
 		'script!foundation-sites/dist/foundation.min.js',
-		'./app/app.jsx'
+		'./client/app/app.jsx'
 	],
 	externals: {
 		jquery: 'jQuery'
@@ -18,12 +18,12 @@ module.exports = {
 	],
 	output: {
 		path: __dirname,
-		filename: './public/bundle.js'
+		filename: './client/public/bundle.js'
 	},
 	resolve: {
 		root: __dirname,
 		alias: {
-			applicationStyles: 'app/styles/app.scss'
+			applicationStyles: './client/app/styles/app.scss'
 		},
 		extensions: ['', '.js', '.jsx']
 	},

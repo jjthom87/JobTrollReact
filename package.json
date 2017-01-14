@@ -1,11 +1,11 @@
 {
-  "name": "helloreact",
+  "name": "JobAppTrack",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "karma start",
-    "start": "node server.js"
+    "start": "server/node server.js"
   },
   "author": "",
   "license": "ISC",
