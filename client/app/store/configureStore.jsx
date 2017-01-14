@@ -1,8 +1,6 @@
-import { 
-	createAccountReducer, 
-	loginReducer,
-	logoutReducer
-} from '../reducers/auth_reducer';
+import { createAccountReducer } from '../reducers/create_account_reducer'; 
+import { loginReducer } from '../reducers/login_reducer'; 
+import { logoutReducer } from '../reducers/logout_reducer'
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import reduxThunk from 'redux-thunk';
 

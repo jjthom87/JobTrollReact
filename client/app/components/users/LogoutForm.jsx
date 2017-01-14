@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/index';
+import * as actions from '../../actions/indexes/logout_index.jsx';
 
 export var LogoutForm = React.createClass({
 	onFormSubmit: function(e){
