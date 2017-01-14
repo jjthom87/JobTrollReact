@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/index';
 
-export default class Login extends React.Component {
-	constructor(...args){
-		super(...args)
-		this.state = {
-		}
-	}
-	onLoginSubmit(e){
+export var LoginForm = React.createClass({
+	onLoginSubmit: function(e){
 		e.preventDefault();
 
 		var creds = {};
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
+		var {dispatch} = this.props;
 
 		if (username.length > 0) {
 			this.refs.username.value = '';
@@ -23,13 +21,13 @@ export default class Login extends React.Component {
 			creds.password = password;
 		}
 
-		this.props.onLogin(creds);
-	}
-	render() {
+		dispatch(actions.loginUser(username, password));
+	},
+	render: function() {
 		return (
 			<div>
 				<div id="loginForm">
-					<form onSubmit={this.onLoginSubmit.bind(this)}>
+					<form onSubmit={this.onLoginSubmit}>
 						<h1 id="loginText"> Login </h1>
 						<div id="submitButton">
 							<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
@@ -45,4 +43,6 @@ export default class Login extends React.Component {
 			</div>
 		);
 	}
-}
+})
+
+export default connect()(LoginForm);

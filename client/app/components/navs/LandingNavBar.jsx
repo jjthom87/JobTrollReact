@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link} from 'react-router';
 
 export default class LandingNavBar extends Component {
-    constructor(props, context) {
-		super(props, context);
-		this.state = {
-		};
-	}
     render() {
         return (
             <header>

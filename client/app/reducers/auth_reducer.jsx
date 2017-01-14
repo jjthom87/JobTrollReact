@@ -1,7 +1,6 @@
 import {
 	CREATE_USER,
-	CORRECT_SIGNUP,
-	INCORRECT_SIGNUP
+	LOGIN_USER
 } from '../actions/types';
 
 export var createAccountReducer = (state = {}, action) => {
@@ -15,6 +14,32 @@ export var createAccountReducer = (state = {}, action) => {
 					password: action.password,
 					confirmPassword: action.confirmPassword
 				}
+			];
+		default:
+			return state;
+	}
+}
+
+export var loginReducer = (state = {}, action) => {
+	switch(action.type){
+		case LOGIN_USER:
+			return [
+			...state,
+				{
+					username: action.username,
+					password: action.password
+				}
+			];
+		default:
+			return state;
+	}
+}
+
+export var logoutReducer = (state = {}, action) => {
+	switch(action.type){
+		case LOGIN_USER:
+			return [
+			...state,
 			];
 		default:
 			return state;

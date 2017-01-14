@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 
-export var CreateAccount = React.createClass({
+export var CreateAccountForm = React.createClass({
 	onCreateUser: function(e){
 		e.preventDefault();
 
@@ -70,4 +70,4 @@ export var CreateAccount = React.createClass({
 	}
 });
 
-export default connect()(CreateAccount);
+export default connect()(CreateAccountForm);

@@ -22,3 +22,50 @@ export function createNewAccount(name, username, password, confirmPassword){
      	return null;
 	}
 };
+
+export function loginForm(username, password){
+	return { type: types.LOGIN_USER, username, password }
+};
+
+export function loginUser(username, password){
+	return function(dispatch){
+		dispatch(loginForm(username,password));
+		const loginUser = {username, password};
+		fetch('/api/users/login', {
+			method: 'post',
+			body: JSON.stringify(loginUser),
+			headers: {
+				'Authorization': 'Basic'+btoa('username:password'),
+				'content-type': 'application/json',
+				'accept': 'application/json'
+			},
+			credentials: 'include'
+		}).then((response) => {
+			if (response.statusText === "OK"){
+				localStorage.setItem('token', response.headers.get('Auth'));
+				browserHistory.push('/userhome');
+				response.json();
+			}}).catch(response => alert(response));
+		return null;
+	}
+};
+
+export function logoutForm(){
+	return { type: types.LOGOUT_USER }
+};
+
+export function logoutUser(){
+	return function(dispatch){
+		dispatch(logoutForm())
+		fetch('/api/users/logout', {
+			method: 'delete',
+			headers: {
+				Auth: localStorage.getItem('token'),
+			},
+			credentials: 'include'
+		}).then((results) => {
+			browserHistory.push('/');
+		}).catch(response => alert(response));
+		return null;
+	}
+}
