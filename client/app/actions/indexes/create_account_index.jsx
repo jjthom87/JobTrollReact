@@ -21,8 +21,6 @@ export function createNewAccount(name, username, password, confirmPassword){
 					browserHistory.push('/login');
 				} else if (results.name === "SequelizeUniqueConstraintError") {
 					throw 'Username already taken'
-				} else if (results === 'Username must be between 5 and 12 characters'){
-					throw 'Username must be between 5 and 12 characters'
 				}
 			}
 			catch(err){

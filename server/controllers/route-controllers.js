@@ -31,7 +31,6 @@ router.post('/api/users/create', function(req,res){
       return reject();
     }
     if(req.body.username.length < 5 || req.body.username.length > 12){
-      res.json('Username must be between 5 and 12 characters');
       return reject();
     }
     modelController.userCreate(
