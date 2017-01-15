@@ -1,6 +1,6 @@
 import { CREATE_USER } from './../actions/types/create_account_types';
 
-export var createAccountReducer = (state = {}, action) => {
+export var createAccountReducer = (state = [], action) => {
 	switch(action.type){
 		case CREATE_USER:
 			return [

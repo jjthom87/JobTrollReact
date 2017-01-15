@@ -1,6 +1,6 @@
 import { LOGIN_USER } from './../actions/types/login_types';
 
-export var loginReducer = (state = {}, action) => {
+export var loginReducer = (state = [], action) => {
 	switch(action.type){
 		case LOGIN_USER:
 			return [
@@ -9,17 +9,6 @@ export var loginReducer = (state = {}, action) => {
 					username: action.username,
 					password: action.password
 				}
-			];
-		default:
-			return state;
-	}
-}
-
-export var logoutReducer = (state = {}, action) => {
-	switch(action.type){
-		case LOGIN_USER:
-			return [
-			...state,
 			];
 		default:
 			return state;

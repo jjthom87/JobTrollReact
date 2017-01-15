@@ -15,19 +15,28 @@ export var CreateAccountForm = React.createClass({
 		if (name.length > 0) {
 			this.refs.name.value = '';
 		} else {
+			this.refs.name.value = '';
 			alert('Please Enter Name/Nickname')
 		}
 
 		if (username.length > 0) {
 			this.refs.username.value = '';
 		} else {
+			this.refs.usernamename.value = '';
 			alert('Please Enter Username');
 		}
 
-		if (password.length > 0) {
+		if (password.length > 7) {
 			this.refs.password.value = '';
 		} else {
+			this.refs.password.value = '';
 			alert('Password Must be at least 8 characters');
+		}
+
+		if (confirmPassword.length > 0) {
+			this.refs.confirmPassword.value = '';
+		} else {
+			alert('Please confirm password');
 		}
 
 		if (confirmPassword === password){

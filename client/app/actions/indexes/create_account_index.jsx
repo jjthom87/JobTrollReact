@@ -2,8 +2,8 @@ import * as types from './../types/create_account_types';
 import fetch from 'isomorphic-fetch';
 import { browserHistory } from 'react-router';
 
-export function createAccountForm(name, username, password, confirmPassword){
-	return { type: types.CREATE_USER, name, username, password, confirmPassword }
+export function createAccountForm(newUser){
+	return { type: types.CREATE_USER, newUser }
 };
 
 export function createNewAccount(name, username, password, confirmPassword){
@@ -16,9 +16,19 @@ export function createNewAccount(name, username, password, confirmPassword){
 			headers: {'content-type': 'application/json'}
 		}).then((response) => response.json())
 		.then((results) => {
-			if(results.createdAt){
-				browserHistory.push('/login');
-			}}).catch(response => alert(response));
+			try {
+				if(results.createdAt){
+					browserHistory.push('/login');
+				} else if (results.name === "SequelizeUniqueConstraintError") {
+					throw 'Username already taken'
+				} else if (results === 'Username must be between 5 and 12 characters'){
+					throw 'Username must be between 5 and 12 characters'
+				}
+			}
+			catch(err){
+				alert(err)
+			}
+		});
      	return null;
 	}
 };

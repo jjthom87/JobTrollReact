@@ -2,8 +2,8 @@ import * as types from './../types/login_types';
 import fetch from 'isomorphic-fetch';
 import { browserHistory } from 'react-router';
 
-export function loginForm(username, password){
-	return { type: types.LOGIN_USER, username, password }
+export function loginForm(loginUser){
+	return { type: types.LOGIN_USER, loginUser}
 };
 
 export function loginUser(username, password){
@@ -20,11 +20,18 @@ export function loginUser(username, password){
 			},
 			credentials: 'include'
 		}).then((response) => {
-			if (response.statusText === "OK"){
-				localStorage.setItem('token', response.headers.get('Auth'));
-				browserHistory.push('/userhome');
-				response.json();
-			}}).catch(response => alert(response));
+			try{
+				if (response.statusText === "OK"){
+					localStorage.setItem('token', response.headers.get('Auth'));
+					browserHistory.push('/userhome');
+				} else {
+					throw "Incorrect Login Credentials";
+				}
+			}
+			catch(err){
+				alert(err);
+			}
+		});
 		return null;
 	}
 };

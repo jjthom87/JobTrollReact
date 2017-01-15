@@ -21,6 +21,19 @@ router.post('/api/users/create', function(req,res){
     if (req.body.password !== req.body.confirmPassword){
       return reject();
     }
+    if(!req.body.name){
+      return reject();
+    }
+    if(!req.body.password){
+      return reject();
+    }
+    if(!req.body.confirmPassword){
+      return reject();
+    }
+    if(req.body.username.length < 5 || req.body.username.length > 12){
+      res.json('Username must be between 5 and 12 characters');
+      return reject();
+    }
     modelController.userCreate(
       req.body.name,
       req.body.username,

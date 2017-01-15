@@ -3,20 +3,19 @@ import * as actions from './../../actions/indexes/create_account_index';
 import * as types from './../../actions/types/create_account_types';
 
 describe('Create Account Actions', ()=>{
-	it('should generate create account action', () => {
-		const newUser = {
-			type: types.CREATE_USER,
+	it('should generate create account form action', () => {
+		const newUser = [{
 			name: 'joeyjoey',
 			username: 'johnnyjohn',
 			password: 'aaaaaaaa',
 			confirmPassword: 'aaaaaaaa'
-		};
-		const res = actions.createAccountForm(
-			newUser.name, 
-			newUser.username, 
-			newUser.password, 
-			newUser.confirmPassword);
+		}];
+		const action = {
+			type: types.CREATE_USER,
+			newUser
+		}
+		const res = actions.createAccountForm(newUser);
 
-		expect(res).toEqual(newUser);
+		expect(res).toEqual(action);
 	});
 });

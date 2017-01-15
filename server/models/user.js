@@ -14,7 +14,10 @@ module.exports = function (sequelize, DataTypes) {
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: true
+			unique: true,
+			validate: {
+				len: [5, 12]
+			}
 		},
 		profileImage: {
 			type: DataTypes.TEXT('long')
